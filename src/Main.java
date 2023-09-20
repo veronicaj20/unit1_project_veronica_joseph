@@ -5,13 +5,13 @@ public class Main {
         Scanner s = new Scanner(System.in);
 
         // user inputs information
-        System.out.print("Welcome! Enter your bill amount: ");
+        System.out.print("Welcome! Enter your bill amount: $");
         String billNoTipConvert = s.nextLine();
         double totalBillNoTip = Double.parseDouble(billNoTipConvert); // variable for original bill
 
         System.out.print("Enter your tip percentage: " );
         String tipConvert = s.nextLine();
-        double tipPercentage = Double.parseDouble(tipConvert); // variable for tip percentage
+        int tipPercentage = Integer.parseInt(tipConvert); // variable for tip percentage
 
         System.out.print("Enter the total number of people in your party: ");
         String partyConvert = s.nextLine();
@@ -19,11 +19,13 @@ public class Main {
         System.out.println();
 
         // variables for calculations
-        double totalTipAmt = totalBillNoTip * (tipPercentage / 100);
+        double totalTipAmt = totalBillNoTip * ((double) tipPercentage / 100);
         double totalBillWithTip = totalBillNoTip + totalTipAmt;
         double tipPerPerson = totalTipAmt / numPeople;
         double totalPerPerson = (totalBillNoTip / numPeople) + tipPerPerson;
 
+        System.out.println("--------------------------------");
+        System.out.println();
         System.out.print("Your total tip amount is: $");
         System.out.format("%.2f", totalTipAmt);
         System.out.println(); // printing total tip amount
